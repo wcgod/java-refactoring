@@ -2,8 +2,15 @@ public class StringCalculator {
     public static int splitAndSum(String text) {
         /* else 제거
         int result = 0; */
+        /* 1단계 추상화 과정 compose method 패턴
         if (text == null || text.isEmpty()) {
+        */
             /* result = 0; */
+        /*
+            return 0;
+        }
+        */
+        if (isBlank(text)) {
             return 0;
         }
         /* 로컬변수 필요유무 파악
@@ -11,7 +18,10 @@ public class StringCalculator {
         int[] numbers = toInts(values);
         return sum(numbers);
         */
+        /* 1단계 추상화 과정 compose method 패턴
         return sum(toInts(text.split(",|:")));
+        */
+        return sum(toInts(split(text)));
         /*
         } else {
             String[] values = text.split(",|:");
@@ -26,6 +36,14 @@ public class StringCalculator {
         }
         return result;
         */
+    }
+
+    private static boolean isBlank(String text) {
+        return text == null || text.isEmpty();
+    }
+
+    private static String[] split(String text) {
+        return text.split(",|:");
     }
 
     /* 메소드는 한가지 일만 하도록 수정
