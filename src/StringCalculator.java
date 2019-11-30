@@ -6,9 +6,12 @@ public class StringCalculator {
             /* result = 0; */
             return 0;
         }
+        /* 로컬변수 필요유무 파악
         String[] values = text.split(",|:");
         int[] numbers = toInts(values);
         return sum(numbers);
+        */
+        return sum(toInts(text.split(",|:")));
         /*
         } else {
             String[] values = text.split(",|:");
